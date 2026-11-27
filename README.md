@@ -1,6 +1,9 @@
 # Student Performance Analytics & Automated ETL Pipeline
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+[![Student Performance ETL Pipeline](https://github.com/vishal-kushwaha-9912/student-performance-analytics/actions/workflows/etl-pipeline.yml/badge.svg)](https://github.com/vishal-kushwaha-9912/student-performance-analytics/actions/workflows/etl-pipeline.yml)
+
+
+![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
 ![Tests](https://img.shields.io/badge/tests-9%20passed-brightgreen)
 ![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
@@ -16,6 +19,7 @@ An end-to-end data analytics project that turns messy student performance data i
 - [Objectives](#objectives)
 - [Technologies Used](#technologies-used)
 - [ETL Pipeline](#etl-pipeline)
+- [ETL Pipeline Architecture](#etl-pipeline-architecture)
 - [Project Structure](#project-structure)
 - [Installation and Setup](#installation-and-setup)
 - [Run the ETL Pipeline](#run-the-etl-pipeline)
@@ -36,7 +40,7 @@ This project demonstrates a complete data analytics workflow on a synthetic stud
 
 The pipeline extracts raw data, cleans inconsistencies, validates data quality, creates performance and attendance categories, performs statistical analysis, and exports processed datasets for visualization in Power BI.
 
-Automated tests are written with Pytest. GitHub Actions is planned for continuous integration and pipeline automation.
+Automated tests are written with Pytest, and GitHub Actions provides continuous integration by automatically running tests and the ETL pipeline on pushes and pull requests. A scheduled workflow also runs the pipeline daily.
 
 ## Objectives
 
@@ -74,6 +78,23 @@ Automated tests are written with Pytest. GitHub Actions is planned for continuou
 
 `pipeline.py` orchestrates all stages in order.
 
+## ETL Pipeline Architecture
+
+The diagram below shows how data moves through the project. GitHub Actions is shown separately because it automates the tests and the ETL run. It does not build the Power BI dashboard.
+
+```mermaid
+flowchart TD
+    A[Raw CSV Dataset] --> B[Extract]
+    B --> C[Clean]
+    C --> D[Validate]
+    D --> E[Transform]
+    E --> F[Analyze]
+    F --> G[Load]
+    G --> H[Processed CSV Files]
+    H --> I[Power BI Dashboard]
+
+    J[GitHub Actions] -.->|Runs tests and ETL on push, pull request and daily schedule| B
+```
 ## Project Structure
 
 ```text
