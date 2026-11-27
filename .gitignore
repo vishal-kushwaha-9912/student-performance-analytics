@@ -1,0 +1,52 @@
+
+# Ignore datasets by default
+/data/*
+
+# Include the synthetic raw dataset required by the ETL pipeline
+!/data/raw/
+!/data/raw/student_performance_messy.csv
+
+# Notebook outputs can embed dataset rows and analysis results.
+/notebooks/exploration.ipynb
+/notebooks/.ipynb_checkpoints/
+
+# Generated reports may contain dataset-derived information.
+/reports/
+
+# Local credentials and environment files.
+.env
+.env.*
+!.env.example
+
+# VS Code settings.
+.vscode/
+
+# Operating system files.
+.DS_Store
+Thumbs.db
+
+# Local Python environments and generated files.
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Temporary files.
+*.log
+
+# Python build files.
+build/
+dist/
+*.egg-info/
+
+# Test and coverage reports.
+.coverage
+htmlcov/
+
+# Local database files.
+*.db
+*.sqlite3
