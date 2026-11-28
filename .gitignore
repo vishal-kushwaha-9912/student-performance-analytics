@@ -5,6 +5,7 @@
 # Include the synthetic raw dataset required by the ETL pipeline
 !/data/raw/
 !/data/raw/student_performance_messy.csv
+!/data/raw/student_performance_external.csv
 
 # Notebook outputs can embed dataset rows and analysis results.
 /notebooks/exploration.ipynb
@@ -50,3 +51,21 @@ htmlcov/
 # Local database files.
 *.db
 *.sqlite3
+
+
+
+# Security: Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local configuration and secrets
+secrets.json
+credentials.json
+service-account*.json
+
+# Python testing and temporary files
+*.tmp
+*.bak
+*.swp
